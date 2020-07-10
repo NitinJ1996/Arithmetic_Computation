@@ -9,6 +9,11 @@ q=`echo $a*$b+$c | bc -l`
 r=`echo $c+$a/$b | bc -l`
 s=`echo $a%$b+$c | bc -l`
 
+#sorting the array descending order
+function sort_array_desc(){
+   sorted_array_desc=`echo "${arithmeticArray[@]}" | sed 's/ /\n/g' | sort -g -r | sed -z 's/\n/ /g'`
+}
+
 #creating dictionary to Store computed values
 declare -A arithmeticComputation
 arithmeticComputation+=( ["1"]=$p ["2"]=$q ["3"]=$r ["4"]=$s )
@@ -20,5 +25,6 @@ do
 	arithmeticArray[((count++))]=${arithmeticComputation[$num]}
 done
 
-
+#calling sort funtion
+sort_array_desc ${arithmeticArray[@]}
 

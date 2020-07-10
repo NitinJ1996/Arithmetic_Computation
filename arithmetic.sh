@@ -15,6 +15,14 @@ function sort_array_desc(){
    echo ${sorted_array_desc[@]}
 }
 
+#sorting the array in ascending order
+#sorting the array ascending order
+function sort_array_asc(){
+   sorted_array_asc=`echo "${arithmeticArray[@]}" | sed 's/ /\n/g' | sort -g | sed -z 's/\n/ /g'`
+   echo ${sorted_array_asc[@]}
+}
+
+
 #creating dictionary to Store computed values
 declare -A arithmeticComputation
 arithmeticComputation+=( ["1"]=$p ["2"]=$q ["3"]=$r ["4"]=$s )
@@ -29,3 +37,5 @@ done
 #calling the desc order sort function
 sort_array_desc ${arithmeticArray[@]}
 
+#calling the asc order sort function
+sort_array_asc ${arithmeticArray[@]}

@@ -8,3 +8,6 @@ p=`echo $a+$b*$c | bc -l`
 q=`echo $a*$b+$c | bc -l`
 r=`echo $c+$a/$b | bc -l`
 s=`echo $a%$b+$c | bc -l`
+
+declare -A arithmeticComputation
+arithmeticComputation+=( ["1"]=$p ["2"]=$q ["3"]=$r ["4"]=$s )
